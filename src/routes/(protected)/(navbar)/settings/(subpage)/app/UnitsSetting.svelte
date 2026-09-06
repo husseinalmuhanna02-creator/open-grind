@@ -14,9 +14,9 @@
 
 <Item.Root variant="outline" class="gap-3 p-4">
 	<Item.Content class="gap-1">
-		<Item.Title>Units</Item.Title>
-		<Item.Description>
-			Choose how distance, height, and weight are displayed.
+		<Item.Title class="text-start">وحدات القياس</Item.Title>
+		<Item.Description class="text-start">
+			اختر كيفية عرض المسافة والارتفاع والوزن.
 		</Item.Description>
 	</Item.Content>
 	<ToggleGroup.Root
@@ -31,7 +31,7 @@
 				setPreferences({ units }).catch((error) => {
 					pending = null;
 					showErrorToast({
-						label: "Failed to save preferences",
+						label: "فشل حفظ التفضيلات",
 						error,
 					});
 				});
@@ -39,10 +39,10 @@
 		}
 	>
 		<ToggleGroup.Item value="metric" class="flex-1 justify-center">
-			Metric
+			متري
 		</ToggleGroup.Item>
 		<ToggleGroup.Item value="imperial" class="flex-1 justify-center">
-			Imperial
+			إمبراطوري
 		</ToggleGroup.Item>
 	</ToggleGroup.Root>
 </Item.Root>
