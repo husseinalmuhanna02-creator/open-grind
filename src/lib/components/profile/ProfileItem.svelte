@@ -44,7 +44,7 @@
 		onLongPress ? longPressHandlers(onLongPress) : {},
 	);
 	const linkTabindex = $derived(onToggleSelected ? -1 : undefined);
-	const accessibleName = $derived(title.value ?? title.fallback ?? "Someone");
+	const accessibleName = $derived(title.value ?? title.fallback ?? "شخص ما");
 </script>
 
 {#snippet avatarNode()}
@@ -94,7 +94,7 @@
 	{#if avatar.link}
 		<a
 			href={avatar.link}
-			aria-label="{accessibleName}'s profile"
+			aria-label="الملف الشخصي لـ {accessibleName}"
 			class="rounded-l-2xl @max-row:hidden"
 			tabindex={linkTabindex}
 		>
