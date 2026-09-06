@@ -432,3 +432,11 @@ a {
 			inset 1px 1px 5px rgba(0, 0, 0, 0.2);
 	}
 }
+/* تسريع التمرير وتحسين الأداء على الهاتف */
+div {
+	-webkit-overflow-scrolling: touch;
+}
+
+img {
+	content-visibility: auto;
+}
