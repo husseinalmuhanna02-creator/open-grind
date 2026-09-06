@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Hidden users</title>
+	<title>المستخدمون المخفيون</title>
 </svelte:head>
 
 {#snippet icon(on: boolean)}
@@ -29,10 +29,10 @@
 		on ? hideUser({ profileId }) : unhideUser({ profileId })}
 	{icon}
 	{scroll}
-	label="Hidden"
-	errorLabel={{ turningOn: "Failed to hide", turningOff: "Failed to unhide" }}
+	label="مخفي"
+	errorLabel={{ turningOn: "فشل الإخفاء", turningOff: "فشل إلغاء الإخفاء" }}
 	empty={{
-		title: "No Hidden Users",
-		description: "People you hide will appear here.",
+		title: "لا يوجد مستخدمون مخفيون",
+		description: "سيظهر الأشخاص الذين تخفيهم هنا.",
 	}}
 />
