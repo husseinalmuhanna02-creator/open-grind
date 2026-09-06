@@ -12,9 +12,9 @@
 			</Item.Media>
 			<Item.Content class="min-w-0">
 				<Item.Title
-					class="inline-block w-full min-w-0 truncate text-left"
+					class="inline-block w-full min-w-0 truncate text-start"
 				>
-					Account Settings
+					إعدادات الحساب
 				</Item.Title>
 			</Item.Content>
 			<Item.Actions>
