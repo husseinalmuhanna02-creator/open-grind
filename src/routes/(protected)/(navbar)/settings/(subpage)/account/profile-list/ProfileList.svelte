@@ -44,7 +44,12 @@
 		list: () => rows,
 		count: () => list.ids.length,
 	});
-	const visibleIds = $derived(list.ids.slice(view.startIndex, view.endIndex));
+	const visibleIds = $derived(
+	view.endIndex === 0 && list.ids.length > 0
+		? list.ids
+		: list.ids.slice(view.startIndex, view.endIndex)
+);
+
 
 	const scroller = $derived(
 		root ? (nearestScrollableAncestor(root) as HTMLElement | null) : null,
