@@ -16,7 +16,7 @@
 					event.preventDefault();
 					toast(ToastUnimplemented, {
 						componentProps: {
-							feature: "Account settings",
+							feature: "إعدادات الحساب",
 							issue: 47,
 						},
 					});
@@ -24,7 +24,7 @@
 			>
 				<Item.Content class="max-cramped:min-w-0">
 					<Item.Title
-						class="inline-block max-w-full min-w-0 truncate"
+						class="inline-block max-w-full min-w-0 truncate text-start"
 					>
 						{title}
 					</Item.Title>
@@ -42,7 +42,7 @@
 			<a {href} {...props}>
 				<Item.Content class="max-cramped:min-w-0">
 					<Item.Title
-						class="inline-block max-w-full min-w-0 truncate"
+						class="inline-block max-w-full min-w-0 truncate text-start"
 					>
 						{title}
 					</Item.Title>
@@ -54,12 +54,12 @@
 		{/snippet}
 	</Item.Root>
 {/snippet}
-{@render linkItem({ title: "Privacy", href: "/settings/account/privacy" })}
-{@render item({ title: "Email" })}
-{@render item({ title: "Password" })}
+{@render linkItem({ title: "الخصوصية", href: "/settings/account/privacy" })}
+{@render item({ title: "البريد الإلكتروني" })}
+{@render item({ title: "كلمة المرور" })}
 {@render linkItem({
-	title: "Blocked users",
+	title: "المستخدمون المحظورون",
 	href: "/settings/account/blocked",
 })}
-{@render linkItem({ title: "Hidden users", href: "/settings/account/hidden" })}
-{@render item({ title: "Delete account" })}
+{@render linkItem({ title: "المستخدمون المخفيون", href: "/settings/account/hidden" })}
+{@render item({ title: "حذف الحساب" })}
