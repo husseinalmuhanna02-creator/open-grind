@@ -12,8 +12,8 @@
 </script>
 
 <SwitchField
-	title="Stay online while the app is open"
-	description="Refresh your online status in the background automatically, while the app is open."
+	title="البقاء متصلاً أثناء فتح التطبيق"
+	description="تحديث حالة اتصالك في الخلفية تلقائياً أثناء استخدام التطبيق."
 	disabled={!preferencesLoaded()}
 	bind:checked={
 		() => value,
@@ -21,7 +21,7 @@
 			pending = newValue;
 			setPreferences({ stayOnline: newValue }).catch((error) => {
 				pending = null;
-				showErrorToast({ label: "Failed to save preferences", error });
+				showErrorToast({ label: "فشل حفظ التفضيلات", error });
 			});
 		}
 	}
