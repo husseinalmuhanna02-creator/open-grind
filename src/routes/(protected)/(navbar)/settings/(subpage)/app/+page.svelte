@@ -33,7 +33,7 @@
 			>
 				<Item.Content class="max-cramped:min-w-0">
 					<Item.Title
-						class="inline-block max-w-full min-w-0 truncate"
+						class="inline-block max-w-full min-w-0 truncate text-start"
 					>
 						{title}
 					</Item.Title>
@@ -45,24 +45,24 @@
 		{/snippet}
 	</Item.Root>
 {/snippet}
-<h2>Display</h2>
+<h2>العرض</h2>
 <UnitsSetting />
 {@render item({
-	title: "Notifications",
-	unimplemented: { feature: "Notifications", issue: 45 },
+	title: "الإشعارات",
+	unimplemented: { feature: "الإشعارات", issue: 45 },
 })}
-<h2>Privacy</h2>
+<h2>الخصوصية</h2>
 <StayOnlineSetting />
 <RevealMessageReadSetting />
 <RevealProfileViewSetting />
-<h2>Security</h2>
+<h2>الأمان</h2>
 {@render item({
-	title: "Discreet app icon",
-	unimplemented: { feature: "Discreet app icon", issue: 97 },
+	title: "أيقونة التطبيق المتموهة",
+	unimplemented: { feature: "أيقونة التطبيق المتموهة", issue: 97 },
 })}
-{@render item({ title: "PIN", unimplemented: { feature: "PIN", issue: 50 } })}
+{@render item({ title: "رمز PIN", unimplemented: { feature: "رمز PIN", issue: 50 } })}
 {#if updatesSelfManaged()}
-	<h2>Updates</h2>
+	<h2>التحديثات</h2>
 	<AutomaticUpdatesSetting />
 {/if}
 
