@@ -46,6 +46,6 @@
 	/>
 {:catch}
 	<p class="px-1 py-8 text-center text-destructive">
-		Failed to load your profile. Please try again.
+		فشل تحميل ملفك الشخصي. يرجى المحاولة مرة أخرى.
 	</p>
 {/await}
