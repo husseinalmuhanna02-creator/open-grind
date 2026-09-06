@@ -21,9 +21,9 @@
 			</Item.Media>
 			<Item.Content class="min-w-0">
 				<Item.Title
-					class="inline-block w-full min-w-0 truncate text-left"
+					class="inline-block w-full min-w-0 truncate text-start"
 				>
-					Sign Out
+					تسجيل الخروج
 				</Item.Title>
 			</Item.Content>
 			<Item.Actions>
@@ -35,16 +35,15 @@
 <AlertDialog.Root bind:open={alertOpen}>
 	<AlertDialog.Content>
 		<AlertDialog.Header>
-			<AlertDialog.Title>Sign out?</AlertDialog.Title>
+			<AlertDialog.Title>تسجيل الخروج؟</AlertDialog.Title>
 			<AlertDialog.Description>
-				Are you sure you want to sign out? You can sign back in at any
-				time.
+				هل أنت تأكد من أنك تريد تسجيل الخروج؟ يمكنك تسجيل الدخول مجدداً في أي وقت.
 			</AlertDialog.Description>
 		</AlertDialog.Header>
 		<AlertDialog.Footer>
-			<AlertDialog.Cancel size="lg">Cancel</AlertDialog.Cancel>
+			<AlertDialog.Cancel size="lg">إلغاء</AlertDialog.Cancel>
 			<AlertDialog.Action onclick={() => signOut()} size="lg">
-				Continue
+				متابعة
 			</AlertDialog.Action>
 		</AlertDialog.Footer>
 	</AlertDialog.Content>
