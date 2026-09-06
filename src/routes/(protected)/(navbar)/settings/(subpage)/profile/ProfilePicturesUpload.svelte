@@ -1,6 +1,6 @@
 <script lang="ts">
     import ProfilePictureSlot from "./ProfilePictureSlot.svelte";
-    import { invoke } from "@tauri-apps/api/core";
+    import { uploadProfilePhoto } from "$lib/api/users/profiles";
 
     const MAX_PHOTOS = 6;
 
@@ -38,11 +38,7 @@
 
         try {
             const base64Data = await readFileAsBase64(file);
-            const res = await invoke<{ mediaHash: string }>("upload_chat_media", {
-                contentType: file.type || "image/jpeg",
-                takenOnGrindr: false,
-                data: base64Data
-            });
+            const res = await uploadProfilePhoto(base64Data, file.type || "image/jpeg");
 
             if (res && res.mediaHash) {
                 medias = [...medias, { mediaHash: res.mediaHash }];
