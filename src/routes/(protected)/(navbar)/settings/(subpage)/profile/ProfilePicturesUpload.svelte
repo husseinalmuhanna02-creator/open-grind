@@ -16,6 +16,19 @@
         medias = medias.filter((media) => media.mediaHash !== mediaHash);
     }
 
+    function readFileAsBase64(file: File): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const result = reader.result as string;
+                const base64 = result.split(',')[1];
+                resolve(base64);
+            };
+            reader.onerror = (err) => reject(err);
+            reader.readAsDataURL(file);
+        });
+    }
+
     async function handleFileSelect(event: Event) {
         const input = event.target as HTMLInputElement;
         if (!input.files || input.files.length === 0) return;
@@ -24,21 +37,18 @@
         uploading = true;
 
         try {
-            const reader = new FileReader();
-            reader.onload = async () => {
-                const base64Data = (reader.result as string).split(',')[1];
-                const res: { media_hash: string } = await invoke("upload_chat_media", {
-                    contentType: file.type,
-                    takenOnGrindr: false,
-                    data: base64Data
-                });
-                if (res && res.media_hash) {
-                    medias = [...medias, { mediaHash: res.media_hash }];
-                }
-            };
-            reader.readAsDataURL(file);
+            const base64Data = await readFileAsBase64(file);
+            const res = await invoke<{ mediaHash: string }>("upload_chat_media", {
+                contentType: file.type || "image/jpeg",
+                takenOnGrindr: false,
+                data: base64Data
+            });
+
+            if (res && res.mediaHash) {
+                medias = [...medias, { mediaHash: res.mediaHash }];
+            }
         } catch (e) {
-            console.error("Failed to upload photo", e);
+            console.error("Failed to upload photo:", e);
         } finally {
             uploading = false;
             input.value = "";
