@@ -23,8 +23,8 @@
 </script>
 
 <SwitchField
-	title="Show my distance"
-	description="Reveal your approximate location to other users as distance, e.g. 1.2 km."
+	title="إظهار مسافتي"
+	description="إظهار موقعك التقريبي للمستخدمين الآخرين على شكل مسافة، مثلاً: 1.2 كم."
 	disabled={!loaded}
 	bind:checked={
 		() => value,
@@ -37,7 +37,7 @@
 				patch: { showDistance: newValue },
 			}).catch((error) => {
 				value = previous;
-				showErrorToast({ label: "Failed to update setting", error });
+				showErrorToast({ label: "فشل تحديث الإعداد", error });
 			});
 		}
 	}
