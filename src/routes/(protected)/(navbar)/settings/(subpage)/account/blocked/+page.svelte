@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Blocked users</title>
+	<title>المستخدمون المحظورون</title>
 </svelte:head>
 
 {#snippet icon(on: boolean)}
@@ -28,13 +28,13 @@
 		on ? blockUser({ profileId }) : unblockUser({ profileId })}
 	{icon}
 	{scroll}
-	label="Blocked"
+	label="محظور"
 	errorLabel={{
-		turningOn: "Failed to block",
-		turningOff: "Failed to unblock",
+		turningOn: "فشل الحظر",
+		turningOff: "فشل إلغاء الحظر",
 	}}
 	empty={{
-		title: "No Blocked Users",
-		description: "People you block will appear here.",
+		title: "لا يوجد مستخدمون محظورون",
+		description: "سيظهر الأشخاص الذين تحظرهم هنا.",
 	}}
 />
