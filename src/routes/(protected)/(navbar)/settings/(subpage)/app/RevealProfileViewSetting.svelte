@@ -14,8 +14,8 @@
 </script>
 
 <SwitchField
-	title="Reveal profile views"
-	description="Let others know when you've viewed their profile. Your profile view history remains unaffected."
+	title="إظهار مشاهدات الملف الشخصي"
+	description="السماح للآخرين بمعرفة ما إذا كنت قد شاهدت ملفاتهم الشخصية. لن يتأثر سجل مشاهدات الملف الشخصي الخاص بك."
 	disabled={!preferencesLoaded()}
 	bind:checked={
 		() => value,
@@ -23,7 +23,7 @@
 			pending = newValue;
 			setPreferences({ revealProfileViews: newValue }).catch((error) => {
 				pending = null;
-				showErrorToast({ label: "Failed to save preferences", error });
+				showErrorToast({ label: "فشل حفظ التفضيلات", error });
 			});
 		}
 	}
