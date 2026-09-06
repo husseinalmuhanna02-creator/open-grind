@@ -53,14 +53,14 @@
 			}}
 		>
 			<DotsNineIcon weight="fill" />
-			Browse
+			تصفح
 		</a>
 		<a
 			href="/right-now"
 			data-active={page.route.id === "/(protected)/(navbar)/right-now"}
 		>
 			<DropIcon weight="fill" />
-			Right Now
+			الآن
 		</a>
 		<a
 			href="/interest"
@@ -69,7 +69,7 @@
 			)}
 		>
 			<FireIcon weight="fill" />
-			Interest
+			الاهتمامات
 			{#if hasUnseenTaps}
 				<Badge
 					class="absolute inset-e-2 top-1 size-2.5 rounded-full p-0"
@@ -78,7 +78,7 @@
 		</a>
 		<a href="/chat" data-active={page.route.id === "/(protected)/chat"}>
 			<ChatCircleIcon weight="fill" />
-			Inbox
+			الرسائل
 			{#if hasUnread}
 				<Badge
 					class="absolute inset-e-2 top-1 size-2.5 rounded-full p-0"
@@ -88,7 +88,7 @@
 	</div>
 	<a
 		href="/settings"
-		aria-label="Me"
+		aria-label="حسابي"
 		class={[
 			"flex size-14 shrink-0 rounded-full border bg-muted p-1",
 			{
