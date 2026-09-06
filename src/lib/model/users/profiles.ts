@@ -24,12 +24,12 @@ export const SexualPosition = {
 } as const;
 
 export const sexualPositions = {
-	[SexualPosition.Top]: "Top",
-	[SexualPosition.Bottom]: "Bottom",
-	[SexualPosition.Versatile]: "Versatile",
-	[SexualPosition.VersBottom]: "Vers Bottom",
-	[SexualPosition.VersTop]: "Vers Top",
-	[SexualPosition.Side]: "Side",
+	[SexualPosition.Top]: "علوي",
+	[SexualPosition.Bottom]: "سفلي",
+	[SexualPosition.Versatile]: "متبادل",
+	[SexualPosition.VersBottom]: "متبادل سفلي",
+	[SexualPosition.VersTop]: "متبادل علوي",
+	[SexualPosition.Side]: "جانبي",
 };
 
 export const sexualPositionSchema = z.enum(SexualPosition);
@@ -46,12 +46,12 @@ export const LookingFor = {
 } as const;
 
 export const lookingFor = {
-	[LookingFor.Chat]: "Chat",
-	[LookingFor.Dates]: "Dates",
-	[LookingFor.Friends]: "Friends",
-	[LookingFor.Networking]: "Networking",
-	[LookingFor.Relationship]: "Relationship",
-	[LookingFor.Hookups]: "Hookups",
+	[LookingFor.Chat]: "دردشة",
+	[LookingFor.Dates]: "مواعيد",
+	[LookingFor.Friends]: "أصدقاء",
+	[LookingFor.Networking]: "تواصل مهني",
+	[LookingFor.Relationship]: "علاقة",
+	[LookingFor.Hookups]: "لقاءات سريعة",
 } as const;
 
 export const lookingForSchema = z.enum(LookingFor);
@@ -65,9 +65,9 @@ export const AcceptNSFWPics = {
 } as const;
 
 export const acceptNSFWPics = {
-	[AcceptNSFWPics.Never]: "Never",
-	[AcceptNSFWPics.NotAtFirst]: "Not At First",
-	[AcceptNSFWPics.YesPlease]: "Yes Please",
+	[AcceptNSFWPics.Never]: "أبداً",
+	[AcceptNSFWPics.NotAtFirst]: "ليس في البداية",
+	[AcceptNSFWPics.YesPlease]: "نعم، بالتأكيد",
 } as const;
 
 export const acceptNSFWPicsSchema = z.enum(AcceptNSFWPics);
@@ -86,14 +86,14 @@ export const RelationshipStatus = {
 } as const;
 
 export const relationshipStatuses = {
-	[RelationshipStatus.Single]: "Single",
-	[RelationshipStatus.Dating]: "Dating",
-	[RelationshipStatus.Exclusive]: "Exclusive",
-	[RelationshipStatus.Committed]: "Committed",
-	[RelationshipStatus.Partnered]: "Partnered",
-	[RelationshipStatus.Engaged]: "Engaged",
-	[RelationshipStatus.Married]: "Married",
-	[RelationshipStatus.OpenRelationship]: "Open Relationship",
+	[RelationshipStatus.Single]: "أعزب",
+	[RelationshipStatus.Dating]: "في مرحلة التعارف",
+	[RelationshipStatus.Exclusive]: "علاقة حصرية",
+	[RelationshipStatus.Committed]: "مرتبط",
+	[RelationshipStatus.Partnered]: "مع شريك",
+	[RelationshipStatus.Engaged]: "مخطوب",
+	[RelationshipStatus.Married]: "متزوج",
+	[RelationshipStatus.OpenRelationship]: "علاقة مفتوحة",
 } as const;
 
 export const relationshipStatusSchema = z.enum(RelationshipStatus);
@@ -110,12 +110,12 @@ export const BodyType = {
 } as const;
 
 export const bodyTypes = {
-	[BodyType.Toned]: "Toned",
-	[BodyType.Average]: "Average",
-	[BodyType.Large]: "Large",
-	[BodyType.Muscular]: "Muscular",
-	[BodyType.Slim]: "Slim",
-	[BodyType.Stocky]: "Stocky",
+	[BodyType.Toned]: "مشدود / رياضي",
+	[BodyType.Average]: "متوسط",
+	[BodyType.Large]: "ضخم",
+	[BodyType.Muscular]: "عضلي",
+	[BodyType.Slim]: "نحيف",
+	[BodyType.Stocky]: "ممتلئ",
 } as const;
 
 export const bodyTypeSchema = z.enum(BodyType);
@@ -139,19 +139,19 @@ export const Tribe = {
 } as const;
 
 export const tribes = {
-	[Tribe.Bear]: "Bear",
-	[Tribe.CleanCut]: "Clean-Cut",
-	[Tribe.Daddy]: "Daddy",
-	[Tribe.Discreet]: "Discreet",
-	[Tribe.Geek]: "Geek",
-	[Tribe.Jock]: "Jock",
-	[Tribe.Leather]: "Leather",
-	[Tribe.Otter]: "Otter",
-	[Tribe.Poz]: "Poz",
-	[Tribe.Rugged]: "Rugged",
-	[Tribe.Sober]: "Sober",
-	[Tribe.Trans]: "Trans",
-	[Tribe.Twink]: "Twink",
+	[Tribe.Bear]: "دب (Bear)",
+	[Tribe.CleanCut]: "مرتب / حليق (Clean-Cut)",
+	[Tribe.Daddy]: "دادي (Daddy)",
+	[Tribe.Discreet]: "كتوم (Discreet)",
+	[Tribe.Geek]: "مهووس تقنية (Geek)",
+	[Tribe.Jock]: "رياضي (Jock)",
+	[Tribe.Leather]: "جلدي (Leather)",
+	[Tribe.Otter]: "أوتر (Otter)",
+	[Tribe.Poz]: "إيجابي المصل (Poz)",
+	[Tribe.Rugged]: "خشن (Rugged)",
+	[Tribe.Sober]: "متعافي (Sober)",
+	[Tribe.Trans]: "عابر جنساً (Trans)",
+	[Tribe.Twink]: "توينك (Twink)",
 } as const;
 
 export const tribeSchema = z.enum(Tribe);
@@ -167,11 +167,11 @@ export const MeetAt = {
 } as const;
 
 export const meetAt = {
-	[MeetAt.MyPlace]: "My Place",
-	[MeetAt.YourPlace]: "Your Place",
-	[MeetAt.Bar]: "Bar",
-	[MeetAt.CoffeeShop]: "Coffee Shop",
-	[MeetAt.Restaurant]: "Restaurant",
+	[MeetAt.MyPlace]: "منزلي",
+	[MeetAt.YourPlace]: "منزلك",
+	[MeetAt.Bar]: "حانة",
+	[MeetAt.CoffeeShop]: "مقهى",
+	[MeetAt.Restaurant]: "مطعم",
 } as const;
 
 export const meetAtSchema = z.enum(MeetAt);
@@ -191,15 +191,15 @@ export const Ethnicity = {
 } as const;
 
 export const ethnicities = {
-	[Ethnicity.Asian]: "Asian",
-	[Ethnicity.Black]: "Black",
-	[Ethnicity.Latino]: "Latino",
-	[Ethnicity.MiddleEastern]: "Middle Eastern",
-	[Ethnicity.Mixed]: "Mixed",
-	[Ethnicity.NativeAmerican]: "Native American",
-	[Ethnicity.White]: "White",
-	[Ethnicity.Other]: "Other",
-	[Ethnicity.SouthAsian]: "South Asian",
+	[Ethnicity.Asian]: "آسيوي",
+	[Ethnicity.Black]: "أسمر / أسود",
+	[Ethnicity.Latino]: "لاتيني",
+	[Ethnicity.MiddleEastern]: "شرق أوسطي",
+	[Ethnicity.Mixed]: "مختلط",
+	[Ethnicity.NativeAmerican]: "من السكان الأصليين",
+	[Ethnicity.White]: "أبيض",
+	[Ethnicity.Other]: "آخر",
+	[Ethnicity.SouthAsian]: "جنوب آسيوي",
 } as const;
 
 export const ethnicitySchema = z.enum(Ethnicity);
@@ -214,10 +214,10 @@ export const HivStatus = {
 } as const;
 
 export const hivStatuses = {
-	[HivStatus.Negative]: "Negative",
-	[HivStatus.NegativeOnPrep]: "Negative, on PrEP",
-	[HivStatus.Positive]: "Positive",
-	[HivStatus.PositiveUndetectable]: "Positive, undetectable",
+	[HivStatus.Negative]: "سالب",
+	[HivStatus.NegativeOnPrep]: "سالب، يتناول PrEP",
+	[HivStatus.Positive]: "موجب",
+	[HivStatus.PositiveUndetectable]: "موجب، غير قابل للكشف (Undetectable)",
 } as const;
 
 export const hivStatusSchema = z.enum(HivStatus);
@@ -233,19 +233,19 @@ export const HealthPractice = {
 } as const;
 
 export const healthPractices = {
-	[HealthPractice.Condoms]: "Condoms",
-	[HealthPractice.DoxyPEP]: "I'm on doxyPEP",
-	[HealthPractice.PrEP]: "I'm on PrEP",
-	[HealthPractice.HIVUndetectable]: "I'm HIV undetectable",
-	[HealthPractice.PreferToDiscuss]: "Prefer to discuss",
+	[HealthPractice.Condoms]: "استخدام الواقي الذكري",
+	[HealthPractice.DoxyPEP]: "أتناول doxyPEP",
+	[HealthPractice.PrEP]: "أتناول PrEP",
+	[HealthPractice.HIVUndetectable]: "غير قابل للكشف (HIV Undetectable)",
+	[HealthPractice.PreferToDiscuss]: "أفضل المناقشة لاحقاً",
 } as const;
 
 export const UnsettableHealthPractice = { Sober: 6, DrugFree: 7 } as const;
 
 export const healthPracticeLabels = {
 	...healthPractices,
-	[UnsettableHealthPractice.Sober]: "Sober",
-	[UnsettableHealthPractice.DrugFree]: "Drug-Free",
+	[UnsettableHealthPractice.Sober]: "متعافي",
+	[UnsettableHealthPractice.DrugFree]: "خالٍ من المخدرات",
 } as const;
 
 export const healthPracticesSchema = z.enum(HealthPractice);
@@ -255,9 +255,9 @@ export type HealthPracticeId = z.infer<typeof healthPracticesSchema>;
 export const Vaccine = { COVID19: 1, Monkeypox: 2, Meningitis: 3 } as const;
 
 export const vaccines = {
-	[Vaccine.COVID19]: "COVID-19",
-	[Vaccine.Monkeypox]: "Monkeypox",
-	[Vaccine.Meningitis]: "Meningitis",
+	[Vaccine.COVID19]: "كوفيد-19",
+	[Vaccine.Monkeypox]: "جدري القردة",
+	[Vaccine.Meningitis]: "التهاب السحايا",
 } as const;
 
 export const vaccinesSchema = z.enum(Vaccine);
