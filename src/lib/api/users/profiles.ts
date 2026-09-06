@@ -373,3 +373,19 @@ export async function getProfileUploadedPhotos() {
 		),
 	);
 }
+
+export async function uploadProfilePhoto(base64Data: string, contentType: string = "image/jpeg") {
+    const res = await fetchRest("/v3.1/me/profile/images", {
+        method: "POST",
+        body: {
+            data: base64Data,
+            contentType,
+        },
+    });
+    res.assertOk();
+    return await res.jsonParsed(
+        z.object({
+            mediaHash: z.string(),
+        })
+    );
+}
