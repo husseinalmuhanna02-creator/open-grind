@@ -28,6 +28,7 @@
 			tone="photo"
 			{size}
 			loading="lazy"
+			decoding="async"
 		/>
 	{:else}
 		<div class="flex size-full items-center justify-center bg-neutral-700">
