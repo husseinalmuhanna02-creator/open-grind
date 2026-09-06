@@ -6,21 +6,21 @@
 
 	const base = "/(protected)/(navbar)/settings/(subpage)";
 	const routes: Record<string, { title: string; back: string }> = {
-		[`${base}/account`]: { title: "Account Settings", back: "/settings" },
+		[`${base}/account`]: { title: "إعدادات الحساب", back: "/settings" },
 		[`${base}/account/privacy`]: {
-			title: "Privacy",
+			title: "الخصوصية",
 			back: "/settings/account",
 		},
 		[`${base}/account/blocked`]: {
-			title: "Blocked Users",
+			title: "المستخدمون المحظورون",
 			back: "/settings/account",
 		},
 		[`${base}/account/hidden`]: {
-			title: "Hidden Users",
+			title: "المستخدمون المخفيون",
 			back: "/settings/account",
 		},
-		[`${base}/app`]: { title: "App Settings", back: "/settings" },
-		[`${base}/profile`]: { title: "Edit Profile", back: "/settings" },
+		[`${base}/app`]: { title: "إعدادات التطبيق", back: "/settings" },
+		[`${base}/profile`]: { title: "تعديل الملف الشخصي", back: "/settings" },
 	};
 
 	const current = $derived(
@@ -40,7 +40,7 @@
 >
 	<a
 		href={current.back}
-		aria-label="Back"
+		aria-label="رجوع"
 		class="flex h-full w-19 shrink-0 items-center justify-center"
 	>
 		<ArrowLeftIcon size={32} />
