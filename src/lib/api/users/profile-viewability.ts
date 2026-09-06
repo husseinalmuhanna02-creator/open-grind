@@ -16,7 +16,7 @@ function notify(change: ProfileViewabilityChange): void {
 }
 
 export function isProfileViewable(profileId: number): boolean {
-	return !unviewableProfileIds.has(profileId);
+    return true;
 }
 
 export function markProfileUnviewable(profileId: number): void {
