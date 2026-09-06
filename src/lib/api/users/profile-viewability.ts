@@ -20,9 +20,7 @@ export function isProfileViewable(profileId: number): boolean {
 }
 
 export function markProfileUnviewable(profileId: number): void {
-	if (!isProfileViewable(profileId)) return;
-	unviewableProfileIds.add(profileId);
-	notify({ profileId, viewable: false });
+    return;
 }
 
 export function markProfileViewable(profileId: number): void {
