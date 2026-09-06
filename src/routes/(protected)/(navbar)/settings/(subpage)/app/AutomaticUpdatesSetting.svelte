@@ -17,7 +17,7 @@
 			})
 			.catch((error: unknown) => {
 				showErrorToast({
-					label: "Couldn't read update settings",
+					label: "تعذر قراءة إعدادات التحديثات",
 					error,
 				});
 			});
@@ -25,8 +25,8 @@
 </script>
 
 <SwitchField
-	title="Check updates automatically"
-	description="Periodically request updates from git.opengrind.org. No personally identifiable information is sent, no requests are stored or analyzed."
+	title="التحقق من التحديثات تلقائياً"
+	description="طلب التحديثات بشكل دوري من git.opengrind.org. لا يتم إرسال أي معلومات شخصية، ولا يتم حفظ الطلبات أو تحليلها."
 	disabled={stored === null}
 	bind:checked={
 		() => value,
@@ -41,7 +41,7 @@
 				.catch((error: unknown) => {
 					pending = null;
 					showErrorToast({
-						label: "Couldn't save update settings",
+						label: "تعذر حفظ إعدادات التحديثات",
 						error,
 					});
 				});
