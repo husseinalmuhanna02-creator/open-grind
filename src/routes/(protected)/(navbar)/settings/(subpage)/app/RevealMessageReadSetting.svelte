@@ -14,8 +14,8 @@
 </script>
 
 <SwitchField
-	title="Reveal message read status"
-	description="Let others know when you've read their messages. Your read receipts remain unaffected."
+	title="إظهار حالة قراءة الرسائل"
+	description="السماح للآخرين بمعرفة ما إذا كنت قد قرأت رسائلهم. لن تتأثر إيصالات القراءة الخاصة بك."
 	disabled={!preferencesLoaded()}
 	bind:checked={
 		() => value,
@@ -23,7 +23,7 @@
 			pending = newValue;
 			setPreferences({ revealMessageRead: newValue }).catch((error) => {
 				pending = null;
-				showErrorToast({ label: "Failed to save preferences", error });
+				showErrorToast({ label: "فشل حفظ التفضيلات", error });
 			});
 		}
 	}
