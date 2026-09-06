@@ -188,17 +188,17 @@
 				}),
 			]);
 			savedForm = sent;
-			toast.success("Profile updated");
+			toast.success("تم تحديث الملف الشخصي");
 		} catch (error) {
 			if (error instanceof ProfileModerationError) {
 				const detail = error.rejected
 					.map((r) => `${r.field}: ${r.terms.join(", ")}`)
 					.join("; ");
-				toast.error("Couldn't save — these terms aren't allowed", {
+				toast.error("تعذر الحفظ — تحتوي المدخلات على مصطلحات غير مسموح بها", {
 					description: detail || undefined,
 				});
 			} else {
-				showErrorToast({ label: "Failed to update profile", error });
+				showErrorToast({ label: "فشل تحديث الملف الشخصي", error });
 			}
 		} finally {
 			saving = false;
@@ -209,169 +209,169 @@
 <form class="flex flex-col gap-6" onsubmit={(event) => event.preventDefault()}>
 	<fieldset disabled={saving} class="contents">
 		<section class="flex flex-col gap-3">
-			<h2>Photos</h2>
+			<h2>الصور</h2>
 			<ProfilePicturesUpload bind:medias={form.medias} />
 		</section>
 
 		<section class="flex flex-col gap-3">
 			<TextField
-				label="Display name"
+				label="الاسم المعروض"
 				bind:value={form.displayName}
 				maxLength={fieldLimits.displayName}
-				placeholder="Everyone will see this on the grid..."
+				placeholder="سيظهر هذا الاسم للجميع على الشبكة..."
 			/>
 			<MultilineField
-				label="About me"
+				label="نبذة عني"
 				bind:value={form.aboutMe}
 				maxLength={fieldLimits.aboutMe}
-				placeholder="Tell people who you are and what you're looking for (not what you're not looking for)"
+				placeholder="اكتب نبذة عن نفسك وما تبحث عنه..."
 			/>
 			<ComboField
-				label="Tags"
+				label="الوسوم"
 				bind:values={form.profileTags}
 				options={tagOptions}
 				resolveLabel={resolveTagLabel}
 				max={maxProfileTags}
-				searchPlaceholder="Search tags..."
+				searchPlaceholder="البحث عن وسوم..."
 			/>
 		</section>
 
 		<section class="flex flex-col gap-3">
-			<h2>Identity</h2>
+			<h2>الهوية</h2>
 			<ComboField
-				label="Gender"
+				label="الجنس"
 				bind:values={form.genderIds}
 				options={genderOptions}
 				resolveLabel={resolveGenderLabel}
 				exclude={genderExclusions}
 				max={maxProfileGenders}
-				searchPlaceholder="Search genders..."
+				searchPlaceholder="البحث عن الجنس..."
 			/>
 			<ComboField
-				label="Pronouns"
+				label="الضمائر"
 				bind:values={form.pronounIds}
 				options={pronounOptions}
 				resolveLabel={resolvePronounLabel}
 				max={maxProfilePronouns}
-				searchPlaceholder="Search pronouns..."
+				searchPlaceholder="البحث عن الضمائر..."
 			/>
 		</section>
 
 		<section class="flex flex-col gap-3">
-			<h2>Stats</h2>
-			<Field label="Age">
+			<h2>المواصفات</h2>
+			<Field label="العمر">
 				<WheelPicker
 					bind:value={form.age}
 					min={ageRange.min}
 					max={ageRange.max}
-					label="years"
+					label="سنة"
 					disabled={saving}
 				/>
 			</Field>
-			<SwitchRow label="Show my age" bind:checked={form.showAge} />
+			<SwitchRow label="إظهار عمري" bind:checked={form.showAge} />
 			<SelectField
-				label="Position"
+				label="الموقع"
 				bind:value={form.sexualPosition}
 				options={positionOptions}
 			/>
 			<SwitchRow
-				label="Show my position"
+				label="إظهار موقعي"
 				bind:checked={form.showPosition}
 			/>
 			<NumberField
-				label="Height"
+				label="الطول"
 				bind:value={form.height}
 				min={heightCmRange.min}
 				max={heightCmRange.max}
-				unit="cm"
+				unit="سم"
 				placeholder="—"
 			/>
 			<NumberField
-				label="Weight"
+				label="الوزن"
 				bind:value={form.weightKg}
 				min={weightKgRange.min}
 				max={weightKgRange.max}
 				step={0.5}
-				unit="kg"
+				unit="كجم"
 				placeholder="—"
 			/>
 			<SelectField
-				label="Body type"
+				label="بنية الجسم"
 				bind:value={form.bodyType}
 				options={bodyTypeOptions}
 			/>
 			<SelectField
-				label="Ethnicity"
+				label="العرق"
 				bind:value={form.ethnicity}
 				options={ethnicityOptions}
 			/>
 			<SelectField
-				label="Relationship status"
+				label="الحالة الاجتماعية"
 				bind:value={form.relationshipStatus}
 				options={relationshipOptions}
 			/>
 		</section>
 
 		<section class="flex flex-col gap-3">
-			<h2>Preferences</h2>
-			<SwitchRow label="Show my tribes" bind:checked={form.showTribes} />
+			<h2>التفضيلات</h2>
+			<SwitchRow label="إظهار الفئات" bind:checked={form.showTribes} />
 			<MultiSelectField
-				label="My tribes"
+				label="فئاتي"
 				bind:values={form.grindrTribes}
 				options={tribeOptions}
 			/>
 			<MultiSelectField
-				label="Tribes I'm into"
+				label="الفئات المهتم بها"
 				bind:values={form.tribesImInto}
 				options={tribeOptions}
 			/>
 			<MultiSelectField
-				label="Looking for"
+				label="أبحث عن"
 				bind:values={form.lookingFor}
 				options={lookingForOptions}
 			/>
 			<MultiSelectField
-				label="Meet at"
+				label="مكان اللقاء"
 				bind:values={form.meetAt}
 				options={meetAtOptions}
 			/>
 			<SelectField
-				label="Accept NSFW pics"
+				label="قبول الصور الحساسة (NSFW)"
 				bind:value={form.nsfw}
 				options={nsfwOptions}
 			/>
 		</section>
 
 		<section class="flex flex-col gap-3">
-			<h2>Health</h2>
+			<h2>الصحة</h2>
 			<SelectField
-				label="HIV status"
+				label="حالة HIV"
 				bind:value={form.hivStatus}
 				options={hivOptions}
 			/>
-			<DateField label="Last tested" bind:value={form.lastTestedDate} />
+			<DateField label="تاريخ آخر فحص" bind:value={form.lastTestedDate} />
 			<MultiSelectField
-				label="Sexual health practices"
+				label="ممارسات الصحة الجنسية"
 				bind:values={form.sexualHealth}
 				options={healthOptions}
 			/>
 			<MultiSelectField
-				label="Vaccines"
+				label="اللقاحات"
 				bind:values={form.vaccineIds}
 				options={vaccineOptions}
 			/>
 		</section>
 
 		<section class="flex flex-col gap-3">
-			<h2>Social</h2>
+			<h2>وسائل التواصل</h2>
 			<SocialField
-				label="Instagram"
+				label="إنستغرام"
 				bind:value={form.instagram}
 				icon={InstagramLogoIcon}
 			/>
-			<SocialField label="X" bind:value={form.twitter} icon={XLogoIcon} />
+			<SocialField label="إكس (X)" bind:value={form.twitter} icon={XLogoIcon} />
 			<SocialField
-				label="Facebook"
+				label="فيسبوك"
 				bind:value={form.facebook}
 				icon={FacebookLogoIcon}
 			/>
@@ -393,7 +393,7 @@
 				{#if saving}
 					<Spinner class="size-5" />
 				{/if}
-				Save changes
+				حفظ التغييرات
 			</Button>
 		</div>
 	{/if}
