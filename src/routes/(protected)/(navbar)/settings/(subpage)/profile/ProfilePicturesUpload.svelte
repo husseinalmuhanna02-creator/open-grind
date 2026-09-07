@@ -4,8 +4,7 @@
 
     const MAX_PHOTOS = 6;
 
-    let { medias = $bindable() }: { medias: { mediaHash: string }[] } =
-        $props();
+    let { medias = $bindable() }: { medias: { mediaHash: string }[] } = $props();
 
     let fileInput: HTMLInputElement;
     let uploading = $state(false);
@@ -21,7 +20,7 @@
             const reader = new FileReader();
             reader.onload = () => {
                 const result = reader.result as string;
-                const base64 = result.split(',')[1];
+                const base64 = result.split(",")[1];
                 resolve(base64);
             };
             reader.onerror = (err) => reject(err);
@@ -38,13 +37,14 @@
 
         try {
             const base64Data = await readFileAsBase64(file);
-            const res = await uploadProfilePhoto(base64Data, file.type || "image/jpeg");
+            const mediaHash = await uploadProfilePhoto(base64Data, file.type || "image/jpeg");
 
-            if (res && res.mediaHash) {
-                medias = [...medias, { mediaHash: res.mediaHash }];
+            if (mediaHash) {
+                medias = [...medias, { mediaHash }];
             }
         } catch (e) {
             console.error("Failed to upload photo:", e);
+            alert("حدث خطأ أثناء رفع الصورة، يرجى المحاولة مرة أخرى.");
         } finally {
             uploading = false;
             input.value = "";
@@ -68,14 +68,14 @@
             onDelete={() => removePhoto(media.mediaHash)}
         />
     {/each}
-    {#each Array.from({ length: emptySlots })}
+    {#each Array.from({ length: emptySlots }) as _, index}
         <button
             type="button"
             class="aspect-square rounded-xl border border-dashed border-border flex items-center justify-center cursor-pointer hover:bg-accent/50 disabled:opacity-50"
             disabled={uploading}
             onclick={() => fileInput?.click()}
         >
-            {#if uploading}
+            {#if uploading && index === 0}
                 <span class="text-xs text-muted-foreground">جاري الرفع...</span>
             {:else}
                 <span class="text-2xl text-muted-foreground">+</span>
