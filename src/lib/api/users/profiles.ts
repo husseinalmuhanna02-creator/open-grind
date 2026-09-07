@@ -376,26 +376,19 @@ export async function getProfileUploadedPhotos() {
 
 import { invoke } from "@tauri-apps/api/core";
 
-export async function uploadProfilePhoto(base64Data: string, contentType: string = "image/jpeg") {
-    // 1. رفع الصورة لتوليد هاش الوسائط المعتمد من السيرفر
-    const uploaded = await invoke<{ mediaHash: string }>("upload_chat_media", {
-        contentType: contentType || "image/jpeg",
-        takenOnGrindr: false,
-        data: base64Data,
-    });
-
-    if (!uploaded || !uploaded.mediaHash) {
-        throw new Error("فشل توليد هاش الصورة");
-    }
-
-    // 2. ربط الهاش رسمياً بقائمة صور البروفايل لدى الخادم
+export async function uploadProfilePhoto(file: File) {
+    const arrayBuffer = await file.arrayBuffer();
     const res = await fetchRest("/v3.1/me/profile/images", {
         method: "POST",
-        body: {
-            media_hashes: [uploaded.mediaHash],
+        headers: {
+            "Content-Type": file.type || "image/jpeg",
         },
+        body: new Uint8Array(arrayBuffer),
     });
     res.assertOk();
-
-    return uploaded.mediaHash;
+    return await res.jsonParsed(
+        z.object({
+            mediaHash: z.string(),
+        })
+    );
 }
