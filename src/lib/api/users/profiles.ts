@@ -376,14 +376,13 @@ export async function getProfileUploadedPhotos() {
 
 import { invoke } from "@tauri-apps/api/core";
 
-export async function uploadProfilePhoto(file: File) {
-    const arrayBuffer = await file.arrayBuffer();
+export async function uploadProfilePhoto(base64Data: string, contentType: string = "image/jpeg") {
     const res = await fetchRest("/v3.1/me/profile/images", {
         method: "POST",
-        headers: {
-            "Content-Type": file.type || "image/jpeg",
+        body: {
+            data: base64Data,
+            contentType,
         },
-        body: new Uint8Array(arrayBuffer),
     });
     res.assertOk();
     return await res.jsonParsed(
