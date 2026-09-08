@@ -15,19 +15,6 @@
         medias = medias.filter((media) => media.mediaHash !== mediaHash);
     }
 
-    function readFileAsBase64(file: File): Promise<string> {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-                const result = reader.result as string;
-                const base64 = result.split(",")[1];
-                resolve(base64);
-            };
-            reader.onerror = (err) => reject(err);
-            reader.readAsDataURL(file);
-        });
-    }
-
     async function handleFileSelect(event: Event) {
         const input = event.target as HTMLInputElement;
         if (!input.files || input.files.length === 0) return;
@@ -36,9 +23,7 @@
         uploading = true;
 
         try {
-            const base64Data = await readFileAsBase64(file);
-            const res = await uploadProfilePhoto(base64Data, file.type || "image/jpeg");
-
+            const res = await uploadProfilePhoto(file);
             if (res && res.mediaHash) {
                 medias = [...medias, { mediaHash: res.mediaHash }];
             }
